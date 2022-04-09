@@ -24,7 +24,7 @@ import java.text.DecimalFormat;
 public class MainActivity extends AppCompatActivity {
 
     TextView result;
-    private final String api = "0467e9991fae0e912bd4f9a5d899519c";
+    private final String api = " ";
     DecimalFormat df = new DecimalFormat("#.##");
     VideoView VidView;
 

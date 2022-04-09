@@ -24,7 +24,7 @@ import java.text.DecimalFormat;
 public class MainActivity extends AppCompatActivity {
 
     TextView result;
-    private final String api = " ";
+    private final String api = "0467e9991fae0e912bd4f9a5d899519c";
     DecimalFormat df = new DecimalFormat("#.##");
     VideoView VidView;
 
@@ -45,6 +45,26 @@ public class MainActivity extends AppCompatActivity {
 
 
         result = findViewById(R.id.result);
+        Connect();
+    }
+
+    private void Connect() {
+        String city = "Edmonton";
+        String country = "Canada";
+        String tempUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "," +country +"&APPID=" + api;
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, tempUrl, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("response",response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),error.toString().trim(),Toast.LENGTH_SHORT).show();
+            }
+        });
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        requestQueue.add(stringRequest);
     }
 
     @Override
@@ -64,22 +84,4 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
-    public void getResult(View view) {
-        String city = "Calgary";
-        String country = "Canada";
-        String tempUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "," +country +"&APPID=" + api;
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, tempUrl, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Log.d("response",response);
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),error.toString().trim(),Toast.LENGTH_SHORT).show();
-            }
-        });
-        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        requestQueue.add(stringRequest);
-    }
 }

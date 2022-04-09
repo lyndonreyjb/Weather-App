@@ -19,11 +19,15 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView result;
+    TextView resultTxt;
     private final String api = "0467e9991fae0e912bd4f9a5d899519c";
     DecimalFormat df = new DecimalFormat("#.##");
     VideoView VidView;
@@ -44,18 +48,34 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        result = findViewById(R.id.result);
+        resultTxt = findViewById(R.id.result);
         Connect();
     }
 
     private void Connect() {
-        String city = "Edmonton";
+        String city = "Calgary";
         String country = "Canada";
         String tempUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "," +country +"&APPID=" + api;
         StringRequest stringRequest = new StringRequest(Request.Method.POST, tempUrl, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.d("response",response);
+                Log.d("response", response);
+                String result = "";
+                try {
+                    JSONObject jsonRes = new JSONObject(response);
+
+                    JSONArray jsonArr = jsonRes.getJSONArray("weather");
+                    JSONObject jsonWeather = jsonArr.getJSONObject(0);
+                    String desc = jsonWeather.getString("description");
+                    JSONObject jsonMain = jsonRes.getJSONObject("main");
+
+                    double temp = jsonMain.getDouble("temp") - 273.15;
+                    String cityName = jsonRes.getString("name");
+                    result +=  "\n Temp: " + df.format(temp) + " °C" + "\n Description: " + desc + "\n City: " + cityName;
+                    resultTxt.setText(result);
+                }catch (JSONException exception) {
+                    exception.printStackTrace();
+                }
             }
         }, new Response.ErrorListener() {
             @Override

@@ -54,28 +54,52 @@ public class MainActivity extends AppCompatActivity {
 
     private void Connect() {
         String city = "Calgary";
-        String country = "Canada";
-        String tempUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "," +country +"&APPID=" + api;
+        String tempUrl = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=" + api;
         StringRequest stringRequest = new StringRequest(Request.Method.POST, tempUrl, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d("response", response);
                 String result = "";
                 try {
-                    JSONObject jsonRes = new JSONObject(response);
 
+                    JSONObject jsonRes = new JSONObject(response);
                     JSONArray jsonArr = jsonRes.getJSONArray("weather");
                     JSONObject jsonWeather = jsonArr.getJSONObject(0);
                     String desc = jsonWeather.getString("description");
                     JSONObject jsonMain = jsonRes.getJSONObject("main");
+                    JSONObject jsonCoor = jsonRes.getJSONObject("coord");
 
+
+                    String lon = jsonCoor.getString("lon");
+                    String lat = jsonCoor.getString("lat");
                     double temp = jsonMain.getDouble("temp") - 273.15;
                     String cityName = jsonRes.getString("name");
-                    result +=  "\n Temp: " + df.format(temp) + " °C" + "\n Description: " + desc + "\n City: " + cityName;
+                    result +=  "\n Temp: " + df.format(temp) + " °C" + "\n Description: " + desc + "\n City: " + cityName + " " + lat + " " + lon;
+
+                    weeklyWeather(lat,lon);
                     resultTxt.setText(result);
+
                 }catch (JSONException exception) {
                     exception.printStackTrace();
                 }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),error.toString().trim(),Toast.LENGTH_SHORT).show();
+            }
+        });
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        requestQueue.add(stringRequest);
+    }
+
+    private void weeklyWeather(String lat, String lon) {
+        String tempUrl = "https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&exclude={alerts,minutely}"+"&appid=" + api;
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, tempUrl, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("response", response);
+
             }
         }, new Response.ErrorListener() {
             @Override

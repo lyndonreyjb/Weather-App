@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void weeklyWeather(String lat, String lon) {
-        String tempUrl = "https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&exclude={alerts,minutely}"+"&appid=" + api;
+        String tempUrl = "https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&exclude={current,alerts,minutely}"+"&appid=" + api;
         StringRequest stringRequest = new StringRequest(Request.Method.POST, tempUrl, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

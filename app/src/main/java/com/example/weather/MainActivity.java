@@ -127,12 +127,17 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void weeklyWeather(String lat, String lon) {
-        String tempUrl = "https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&exclude={current,alerts,minutely}"+"&appid=" + api;
+        String tempUrl = "https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&exclude=current,hourly,alerts,minutely"+"&appid=" + api;
         StringRequest stringRequest = new StringRequest(Request.Method.POST, tempUrl, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d("response", response);
+//            try{
+//                  JSONObject jsonRes = new JSONObject(response);
 
+//            }catch(JSONException exception){
+//                  exception.printStackTrace();
+//                }
             }
         }, new Response.ErrorListener() {
             @Override
@@ -142,7 +147,18 @@ public class MainActivity extends AppCompatActivity {
         });
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         requestQueue.add(stringRequest);
+
+        seeMoreBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, WeeklyWeather.class);
+                intent.putExtra(Intent.EXTRA_TEXT,tempUrl);
+                startActivity(intent);
+            }
+        });
     }
+
+
 
     @Override
     protected void onPostResume() {
@@ -161,8 +177,4 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
-    public void WeatherWeekly(View view) {
-        Intent intent = new Intent(MainActivity.this, WeeklyWeather.class);
-        startActivity(intent);
-    }
 }

@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     DecimalFormat df = new DecimalFormat("#");
     VideoView VidView;
     ImageView iconImg;
-    Button dateBtn, weeklyWeather;
+    Button dateBtn, seeMoreBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         tempTxt = findViewById(R.id.temp);
         iconImg = findViewById(R.id.iconImg);
         dateBtn = findViewById(R.id.dateBtn);
-        weeklyWeather = findViewById(R.id.infoBtn);
+        seeMoreBtn = findViewById(R.id.seeMoreBtn);
         dateBtn.setText(date);
         Connect();
     }

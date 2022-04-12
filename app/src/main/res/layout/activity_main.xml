@@ -85,17 +85,6 @@
                 android:text="Date"
                 app:cornerRadius="25dp" />
 
-            <Button
-                android:id="@+id/infoBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="60dp"
-                android:width="200dp"
-                android:height="70dp"
-                android:backgroundTint="#22A0D5"
-                android:onClick="WeatherWeekly"
-                android:text="Weather Info"
-                app:cornerRadius="25dp" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
@@ -111,7 +100,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView" >
 
         <Button
-            android:id="@+id/infoBtn2"
+            android:id="@+id/seeMoreBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="220dp"
@@ -119,6 +108,7 @@
             android:width="150dp"
             android:height="70dp"
             android:backgroundTint="#22A0D5"
+            android:onClick="WeatherWeekly"
             android:text="See More"
             app:cornerRadius="25dp" />
 

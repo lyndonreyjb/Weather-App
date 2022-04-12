@@ -27,7 +27,7 @@ import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView resultTxt;
+    TextView resultTxt, tempTxt;
     private final String api = "0467e9991fae0e912bd4f9a5d899519c";
     DecimalFormat df = new DecimalFormat("#.##");
     VideoView VidView;
@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         resultTxt = findViewById(R.id.result);
+        tempTxt = findViewById(R.id.temp);
         Connect();
     }
 
@@ -59,7 +60,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Log.d("response", response);
+
                 String result = "";
+                String tempT = "";
+
                 try {
 
                     JSONObject jsonRes = new JSONObject(response);
@@ -74,9 +78,14 @@ public class MainActivity extends AppCompatActivity {
                     String lat = jsonCoor.getString("lat");
                     double temp = jsonMain.getDouble("temp") - 273.15;
                     String cityName = jsonRes.getString("name");
-                    result +=  "\n Temp: " + df.format(temp) + " °C" + "\n Description: " + desc + "\n City: " + cityName + " " + lat + " " + lon;
+
+
+                    result +=  "\n Description: " + desc + "\n City: " + cityName;
+                    tempT += "\n Temp: " + df.format(temp) + " °C ";
 
                     weeklyWeather(lat,lon);
+
+                    tempTxt.setText(tempT);
                     resultTxt.setText(result);
 
                 }catch (JSONException exception) {

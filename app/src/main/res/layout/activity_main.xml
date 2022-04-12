@@ -93,6 +93,7 @@
                 android:width="200dp"
                 android:height="70dp"
                 android:backgroundTint="#22A0D5"
+                android:onClick="WeatherWeekly"
                 android:text="Weather Info"
                 app:cornerRadius="25dp" />
         </LinearLayout>

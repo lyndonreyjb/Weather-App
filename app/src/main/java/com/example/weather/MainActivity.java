@@ -2,6 +2,7 @@ package com.example.weather;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -37,10 +38,10 @@ public class MainActivity extends AppCompatActivity {
 
     TextView resultTxt, tempTxt;
     private final String api = "0467e9991fae0e912bd4f9a5d899519c";
-    DecimalFormat df = new DecimalFormat("#.##");
+    DecimalFormat df = new DecimalFormat("#");
     VideoView VidView;
     ImageView iconImg;
-    Button dateBtn, infoBtn;
+    Button dateBtn, weeklyWeather;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         tempTxt = findViewById(R.id.temp);
         iconImg = findViewById(R.id.iconImg);
         dateBtn = findViewById(R.id.dateBtn);
+        weeklyWeather = findViewById(R.id.infoBtn);
         dateBtn.setText(date);
         Connect();
     }
@@ -159,4 +161,8 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
+    public void WeatherWeekly(View view) {
+        Intent intent = new Intent(MainActivity.this, WeeklyWeather.class);
+        startActivity(intent);
+    }
 }

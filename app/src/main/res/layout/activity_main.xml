@@ -21,7 +21,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="385dp"
-        android:layout_height="408dp"
+        android:layout_height="350dp"
         android:layout_marginTop="96dp"
         android:backgroundTint="#80C1DC"
         app:cardCornerRadius="10dp"
@@ -31,30 +31,71 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
+            android:layout_width="342dp"
             android:layout_height="221dp"
-            android:layout_margin="50dp"
-            app:cardBackgroundColor="#FFFFFF"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="20dp"
+            app:cardBackgroundColor="#F5FEFF"
             app:cardCornerRadius="20dp">
+
+            <ImageView
+                android:id="@+id/iconImg"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="100dp"
+                android:layout_weight="1"
+                tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
                 android:id="@+id/temp"
                 android:layout_width="match_parent"
-                android:layout_height="94dp"
-                android:padding="20dp"
+                android:layout_height="167dp"
+                android:layout_marginTop="-20dp"
                 android:textAlignment="center"
-                android:textColor="#000000" />
+                android:textColor="#004765"
+                android:textSize="50sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/result"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="40dp"
+                android:layout_height="124dp"
+                android:layout_marginTop="90dp"
                 android:padding="20dp"
-                android:textColor="#000000"
-                android:textSize="12sp" />
+                android:textAlignment="viewEnd"
+                android:textColor="#000000" />
 
         </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/dateBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:height="70dp"
+                android:backgroundTint="#22A0D5"
+                android:text="Date"
+                app:cornerRadius="25dp" />
+
+            <Button
+                android:id="@+id/infoBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:width="200dp"
+                android:height="70dp"
+                android:backgroundTint="#22A0D5"
+                android:text="Weather Info"
+                app:cornerRadius="25dp" />
+        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
@@ -66,7 +107,29 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView" >
+
+        <Button
+            android:id="@+id/infoBtn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="10dp"
+            android:width="150dp"
+            android:height="70dp"
+            android:backgroundTint="#22A0D5"
+            android:text="See More"
+            app:cornerRadius="25dp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="149dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:text="Weekly Forecast"
+            android:textSize="16sp" />
+    </androidx.cardview.widget.CardView>
 
     <ImageView
         android:id="@+id/searchBtn"

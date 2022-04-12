@@ -2,12 +2,15 @@ package com.example.weather;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
@@ -18,12 +21,17 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.InputStream;
+import java.net.URL;
+import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     private final String api = "0467e9991fae0e912bd4f9a5d899519c";
     DecimalFormat df = new DecimalFormat("#.##");
     VideoView VidView;
+    ImageView iconImg;
+    Button dateBtn, infoBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +57,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Calendar calendar = Calendar.getInstance();
+        String date = DateFormat.getDateInstance().format(calendar.getTime());
 
         resultTxt = findViewById(R.id.result);
         tempTxt = findViewById(R.id.temp);
+        iconImg = findViewById(R.id.iconImg);
+        dateBtn = findViewById(R.id.dateBtn);
+        dateBtn.setText(date);
         Connect();
     }
 
@@ -64,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
                 String result = "";
                 String tempT = "";
 
+
                 try {
 
                     JSONObject jsonRes = new JSONObject(response);
@@ -72,21 +88,25 @@ public class MainActivity extends AppCompatActivity {
                     String desc = jsonWeather.getString("description");
                     JSONObject jsonMain = jsonRes.getJSONObject("main");
                     JSONObject jsonCoor = jsonRes.getJSONObject("coord");
-
+                    String icon = jsonWeather.getString("icon");
 
                     String lon = jsonCoor.getString("lon");
                     String lat = jsonCoor.getString("lat");
                     double temp = jsonMain.getDouble("temp") - 273.15;
+                    double feelsT = jsonMain.getDouble("feels_like") - 273.15;
                     String cityName = jsonRes.getString("name");
 
+                    tempT += "\n " + df.format(temp) + " °C ";
+                    result +=  "\n City: " + cityName + "\n Description: " + desc + "\n Feels Like: " + df.format(feelsT) + " °C ";
 
-                    result +=  "\n Description: " + desc + "\n City: " + cityName;
-                    tempT += "\n Temp: " + df.format(temp) + " °C ";
 
                     weeklyWeather(lat,lon);
 
                     tempTxt.setText(tempT);
                     resultTxt.setText(result);
+
+                    Picasso.get().load("https://openweathermap.org/img/wn/"+icon+"@2x.png").into(iconImg);
+
 
                 }catch (JSONException exception) {
                     exception.printStackTrace();
@@ -101,6 +121,8 @@ public class MainActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         requestQueue.add(stringRequest);
     }
+
+
 
     private void weeklyWeather(String lat, String lon) {
         String tempUrl = "https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&exclude={current,alerts,minutely}"+"&appid=" + api;

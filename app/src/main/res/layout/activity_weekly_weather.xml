@@ -1,233 +1,223 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:onClick="backButton"
-tools:context=".WeeklyWeather">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:onClick="backButton"
+    tools:context=".WeeklyWeather">
 
-<VideoView
-    android:id="@+id/videoView"
-    android:layout_width="552dp"
-    android:layout_height="874dp"
-    app:circularflow_defaultRadius="50dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.503"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.503" />
+    <TextView
+        android:id="@+id/Condition4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="80dp"
+        android:text="c4"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toEndOf="@+id/Date4"
+        app:layout_constraintTop_toBottomOf="@+id/Condition3" />
 
-<TextView
-    android:id="@+id/Condition4"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="40dp"
-    android:layout_marginTop="80dp"
-    android:text="c4"
-    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-    app:layout_constraintStart_toEndOf="@+id/Date4"
-    app:layout_constraintTop_toBottomOf="@+id/Condition3" />
+    <TextView
+        android:id="@+id/Condition5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="80dp"
+        android:text="c5"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toEndOf="@+id/Date5"
+        app:layout_constraintTop_toBottomOf="@+id/Condition4" />
 
-<TextView
-    android:id="@+id/Condition5"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="40dp"
-    android:layout_marginTop="80dp"
-    android:text="c5"
-    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-    app:layout_constraintStart_toEndOf="@+id/Date5"
-    app:layout_constraintTop_toBottomOf="@+id/Condition4" />
+    <TextView
+        android:id="@+id/Date1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="120dp"
+        android:text="d1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-<TextView
-    android:id="@+id/Date1"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="20dp"
-    android:layout_marginTop="120dp"
-    android:text="d1"
-    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/Date4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="80dp"
+        android:text="d4"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Date3" />
 
-<TextView
-    android:id="@+id/Date4"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="20dp"
-    android:layout_marginTop="80dp"
-    android:text="d4"
-    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/Date3" />
+    <TextView
+        android:id="@+id/Temp4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="20dp"
+        android:text="t4"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Condition4"
+        app:layout_constraintTop_toBottomOf="@+id/Temp3" />
 
-<TextView
-    android:id="@+id/Temp4"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="40dp"
-    android:layout_marginTop="80dp"
-    android:layout_marginEnd="20dp"
-    android:text="t4"
-    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toEndOf="@+id/Condition4"
-    app:layout_constraintTop_toBottomOf="@+id/Temp3" />
+    <TextView
+        android:id="@+id/Date3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="80dp"
+        android:text="d3"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Date2" />
 
-<TextView
-    android:id="@+id/Date3"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="20dp"
-    android:layout_marginTop="80dp"
-    android:text="d3"
-    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/Date2" />
+    <TextView
+        android:id="@+id/Temp1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="20dp"
+        android:text="t1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Condition1"
+        app:layout_constraintTop_toTopOf="parent" />
 
-<TextView
-    android:id="@+id/Temp1"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="40dp"
-    android:layout_marginTop="120dp"
-    android:layout_marginEnd="20dp"
-    android:text="t1"
-    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toEndOf="@+id/Condition1"
-    app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/Condition1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="120dp"
+        android:text="c1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toEndOf="@+id/Date1"
+        app:layout_constraintTop_toTopOf="parent" />
 
-<TextView
-    android:id="@+id/Condition1"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="40dp"
-    android:layout_marginTop="120dp"
-    android:text="c1"
-    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-    app:layout_constraintStart_toEndOf="@+id/Date1"
-    app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/Condition3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="80dp"
+        android:text="c3"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toEndOf="@+id/Date3"
+        app:layout_constraintTop_toBottomOf="@+id/Condition2" />
 
-<TextView
-    android:id="@+id/Condition3"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="40dp"
-    android:layout_marginTop="80dp"
-    android:text="c3"
-    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-    app:layout_constraintStart_toEndOf="@+id/Date3"
-    app:layout_constraintTop_toBottomOf="@+id/Condition2" />
+    <TextView
+        android:id="@+id/Temp5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="20dp"
+        android:text="t5"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Condition5"
+        app:layout_constraintTop_toBottomOf="@+id/Temp4" />
 
-<TextView
-    android:id="@+id/Temp5"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="40dp"
-    android:layout_marginTop="80dp"
-    android:layout_marginEnd="20dp"
-    android:text="t5"
-    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toEndOf="@+id/Condition5"
-    app:layout_constraintTop_toBottomOf="@+id/Temp4" />
+    <TextView
+        android:id="@+id/Temp3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="20dp"
+        android:text="t3"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Condition3"
+        app:layout_constraintTop_toBottomOf="@+id/Temp2" />
 
-<TextView
-    android:id="@+id/Temp3"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="40dp"
-    android:layout_marginTop="80dp"
-    android:layout_marginEnd="20dp"
-    android:text="t3"
-    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toEndOf="@+id/Condition3"
-    app:layout_constraintTop_toBottomOf="@+id/Temp2" />
+    <TextView
+        android:id="@+id/Temp2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="20dp"
+        android:text="t2"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Condition2"
+        app:layout_constraintTop_toBottomOf="@+id/Temp1" />
 
-<TextView
-    android:id="@+id/Temp2"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="40dp"
-    android:layout_marginTop="80dp"
-    android:layout_marginEnd="20dp"
-    android:text="t2"
-    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toEndOf="@+id/Condition2"
-    app:layout_constraintTop_toBottomOf="@+id/Temp1" />
+    <TextView
+        android:id="@+id/Date2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="80dp"
+        android:text="d2"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Date1" />
 
-<TextView
-    android:id="@+id/Date2"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="20dp"
-    android:layout_marginTop="80dp"
-    android:text="d2"
-    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/Date1" />
+    <TextView
+        android:id="@+id/Condition2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="80dp"
+        android:text="c2"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toEndOf="@+id/Date2"
+        app:layout_constraintTop_toBottomOf="@+id/Condition1" />
 
-<TextView
-    android:id="@+id/Condition2"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="40dp"
-    android:layout_marginTop="80dp"
-    android:text="c2"
-    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-    app:layout_constraintStart_toEndOf="@+id/Date2"
-    app:layout_constraintTop_toBottomOf="@+id/Condition1" />
+    <TextView
+        android:id="@+id/Date5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="80dp"
+        android:text="d5"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Date4" />
 
-<TextView
-    android:id="@+id/Date5"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="20dp"
-    android:layout_marginTop="80dp"
-    android:text="d5"
-    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/Date4" />
+    <ImageView
+        android:id="@+id/searchBtn"
+        android:layout_width="52dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp"
+        android:contentDescription="@string/todo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_search_24" />
 
-<ImageView
-    android:id="@+id/searchBtn"
-    android:layout_width="52dp"
-    android:layout_height="45dp"
-    android:layout_marginTop="16dp"
-    android:layout_marginEnd="12dp"
-    android:contentDescription="@string/todo"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:srcCompat="@drawable/ic_baseline_search_24" />
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="52dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_settings_24" />
 
-<ImageView
-    android:id="@+id/imageView3"
-    android:layout_width="52dp"
-    android:layout_height="45dp"
-    android:layout_marginStart="16dp"
-    android:layout_marginTop="16dp"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:srcCompat="@drawable/ic_baseline_settings_24" />
-
-<Button
-    android:id="@+id/btnBack"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="56dp"
-    android:backgroundTint="#80C1DC"
-    android:text="Back"
-    android:textColor="#000000"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.066"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/Date5"
-    app:layout_constraintVertical_bias="0.578" />
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:backgroundTint="#80C1DC"
+        android:onClick="backButton"
+        android:text="Back"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.066"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Date5"
+        app:layout_constraintVertical_bias="0.578" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

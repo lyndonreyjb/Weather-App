@@ -25,25 +25,12 @@ import org.json.JSONObject;
 
 public class WeeklyWeather extends AppCompatActivity {
 
-    VideoView videoView;
     TextView Date1, Date2, Date3, Date4, Date5, Condition1, Condition2, Condition3, Condition4, Condition5, Temp1, Temp2, Temp3, Temp4, Temp5;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weekly_weather);
 
-        // Play background video
-        videoView = findViewById(R.id.videoView);
-        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.back);
-        videoView.setVideoURI(uri);
-        videoView.start();
-        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared(MediaPlayer media) {
-                media.setLooping(true);
-            }
-        });
-        //-------------
 
         Date1 = findViewById(R.id.Date1);
         Date2 = findViewById(R.id.Date2);
@@ -88,24 +75,8 @@ public class WeeklyWeather extends AppCompatActivity {
     }
 
 
-    // Play background video
-    @Override
-    protected void onPostResume() {
-        videoView.resume();
-        super.onPostResume();
-    }
-
-    @Override
-    protected void onRestart() {
-        videoView.start();
-        super.onRestart();
-    }
-    @Override
-    protected void onDestroy() {
-        videoView.stopPlayback();
-        super.onDestroy();
-    }
-
     public void backButton(View view) {
+        Intent intent = new Intent(WeeklyWeather.this, MainActivity.class);
+        startActivity(intent);
     }
 }

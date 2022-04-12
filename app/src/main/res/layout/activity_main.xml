@@ -4,19 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".MainActivity">
-
-    <VideoView
-        android:id="@+id/VidView"
-        android:layout_width="552dp"
-        android:layout_height="874dp"
-        app:circularflow_defaultRadius="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.581"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.503" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -97,7 +86,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" >
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
 
         <Button
             android:id="@+id/seeMoreBtn"
@@ -108,7 +97,6 @@
             android:width="150dp"
             android:height="70dp"
             android:backgroundTint="#22A0D5"
-            android:onClick="WeatherWeekly"
             android:text="See More"
             app:cornerRadius="25dp" />
 

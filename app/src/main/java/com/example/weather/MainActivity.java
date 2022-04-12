@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
     TextView resultTxt, tempTxt;
     private final String api = "0467e9991fae0e912bd4f9a5d899519c";
     DecimalFormat df = new DecimalFormat("#");
-    VideoView VidView;
     ImageView iconImg;
     Button dateBtn, seeMoreBtn;
 
@@ -47,16 +46,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        VidView = findViewById(R.id.VidView);
-        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.back);
-        VidView.setVideoURI(uri);
-        VidView.start();
-        VidView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared(MediaPlayer media) {
-                media.setLooping(true);
-            }
-        });
 
         Calendar calendar = Calendar.getInstance();
         String date = DateFormat.getDateInstance().format(calendar.getTime());
@@ -158,23 +147,5 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
-
-    @Override
-    protected void onPostResume() {
-        VidView.resume();
-        super.onPostResume();
-    }
-
-    @Override
-    protected void onRestart() {
-        VidView.start();
-        super.onRestart();
-    }
-    @Override
-    protected void onDestroy() {
-        VidView.stopPlayback();
-        super.onDestroy();
-    }
 
 }

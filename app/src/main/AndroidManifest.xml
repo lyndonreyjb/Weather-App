@@ -15,9 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Weather">
         <activity
-            android:name=".SearchBar"
-            android:exported="false" />
-        <activity
             android:name=".WeeklyWeather"
             android:exported="false" />
         <activity

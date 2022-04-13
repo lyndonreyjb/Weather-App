@@ -195,7 +195,7 @@
         app:srcCompat="@drawable/ic_baseline_search_24" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/settingBtn"
         android:layout_width="52dp"
         android:layout_height="45dp"
         android:layout_marginStart="16dp"

@@ -2,6 +2,8 @@ package com.example.weather;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
@@ -39,8 +41,11 @@ public class MainActivity extends AppCompatActivity {
     TextView resultTxt, tempTxt;
     private final String api = "0467e9991fae0e912bd4f9a5d899519c";
     DecimalFormat df = new DecimalFormat("#");
-    ImageView iconImg;
+    ImageView iconImg, settingBtn,searchBtn;
     Button dateBtn, seeMoreBtn;
+
+    AlertDialog.Builder dialogBuild;
+    AlertDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +60,18 @@ public class MainActivity extends AppCompatActivity {
         iconImg = findViewById(R.id.iconImg);
         dateBtn = findViewById(R.id.dateBtn);
         seeMoreBtn = findViewById(R.id.seeMoreBtn);
+        searchBtn = findViewById(R.id.searchBtn);
+
         dateBtn.setText(date);
         Connect();
+
+        searchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createDialog();
+            }
+        });
+
     }
 
     private void Connect() {
@@ -147,5 +162,15 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
+    public void createDialog(){
+        dialogBuild = new AlertDialog.Builder(this);
+        final View popUp = getLayoutInflater().inflate(R.layout.searchbar,null);
+        dialogBuild.setView(popUp);
+        dialog = dialogBuild.create();
+        dialog.show();
+
+
+    }
 
 }

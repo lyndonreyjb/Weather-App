@@ -38,11 +38,6 @@ public class WeeklyWeather extends AppCompatActivity {
         Date4 = findViewById(R.id.Date4);
         Date5 = findViewById(R.id.Date5);
 
-        Condition1 = findViewById(R.id.Condition1);
-        Condition2 = findViewById(R.id.Condition2);
-        Condition3 = findViewById(R.id.Condition3);
-        Condition4 = findViewById(R.id.Condition4);
-        Condition5 = findViewById(R.id.Condition5);
 
         Temp1 = findViewById(R.id.Temp1);
         Temp2 = findViewById(R.id.Temp2);
@@ -50,19 +45,47 @@ public class WeeklyWeather extends AppCompatActivity {
         Temp4 = findViewById(R.id.Temp4);
         Temp5 = findViewById(R.id.Temp5);
 
+        TextView[] conditions =
+                        {Condition1 = findViewById(R.id.Condition1),
+                        Condition2 = findViewById(R.id.Condition2),
+                        Condition3 = findViewById(R.id.Condition3),
+                        Condition4 = findViewById(R.id.Condition4),
+                        Condition5 = findViewById(R.id.Condition5)};
+
 
         Intent intent = getIntent();
         String url = intent.getStringExtra(Intent.EXTRA_TEXT);
-        weeklyWeather(url);
+        weeklyWeather(url,conditions);
 
     }
 
-    private void weeklyWeather(String url) {
+    private void weeklyWeather(String url, TextView[] conditions) {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+
             @Override
             public void onResponse(String response) {
                 Log.d("response", response);
+                try{
+                    for(int i = 0; i < 5; i++) {
 
+                        JSONObject jsonRes = new JSONObject(response);
+                        JSONArray jsonArray = jsonRes.getJSONArray("daily");
+                        JSONObject jsonDaily = jsonArray.getJSONObject(i);
+                        JSONArray jsonWeatherArray = jsonDaily.getJSONArray("weather");
+                        JSONObject jsonWeather = jsonWeatherArray.getJSONObject(0);
+                        String condition = jsonWeather.getString("description");
+                        //JSONArray jsonTempArray = jsonDaily.getJSONArray("temp");
+                        //JSONObject jsonTemp = jsonTempArray.getJSONObject(0);
+                        //double temp = jsonTemp.getDouble("day") - 273.15;
+                        //tempt = "\n " + df.format(temp) + " °C ";
+                        conditions[i].setText(condition);
+                        //conditionDisplay.setText(condition);
+                        //tempDisplayName.setText(temp);
+                    }
+
+                }catch(JSONException exception){
+                  exception.printStackTrace();
+                }
             }
         }, new Response.ErrorListener() {
             @Override
@@ -79,4 +102,5 @@ public class WeeklyWeather extends AppCompatActivity {
         Intent intent = new Intent(WeeklyWeather.this, MainActivity.class);
         startActivity(intent);
     }
+
 }

@@ -44,6 +44,31 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.025">
 
+        <EditText
+            android:id="@+id/txtInput"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:padding="20dp"
+            android:text=""
+            tools:ignore="SpeakableTextPresentCheck" />
     </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/saveBtn"
+        android:layout_width="142dp"
+        android:layout_height="64dp"
+        android:backgroundTint="#22A0D5"
+        android:onClick="saveSearch"
+        android:text="Save"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.189"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2"
+        app:layout_constraintVertical_bias="0.038" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

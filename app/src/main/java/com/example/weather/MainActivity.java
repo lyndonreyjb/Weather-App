@@ -9,10 +9,12 @@ import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,10 +44,12 @@ public class MainActivity extends AppCompatActivity {
     private final String api = "0467e9991fae0e912bd4f9a5d899519c";
     DecimalFormat df = new DecimalFormat("#");
     ImageView iconImg, settingBtn,searchBtn;
-    Button dateBtn, seeMoreBtn;
+    Button dateBtn, seeMoreBtn,saveBtn;
 
     AlertDialog.Builder dialogBuild;
     AlertDialog dialog;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         dateBtn = findViewById(R.id.dateBtn);
         seeMoreBtn = findViewById(R.id.seeMoreBtn);
         searchBtn = findViewById(R.id.searchBtn);
+        saveBtn = findViewById(R.id.saveBtn);
 
         dateBtn.setText(date);
         Connect();
@@ -71,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 createDialog();
             }
         });
+
 
     }
 
@@ -169,8 +175,11 @@ public class MainActivity extends AppCompatActivity {
         dialogBuild.setView(popUp);
         dialog = dialogBuild.create();
         dialog.show();
-
-
     }
 
+    public void saveSearch(View view) {
+
+    final EditText txtInput = new EditText(MainActivity.this);
+    txtInput.setInputType(InputType.TYPE_CLASS_TEXT);
+    }
 }
